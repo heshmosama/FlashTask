@@ -1,27 +1,27 @@
 // import 'dart:async';
-
+//
 // import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 // import 'package:grsia/core/di/injector_container.dart';
 // import 'package:grsia/data/datasource/local-datasource/shared_prefrances_data_source.dart';
 // import 'package:local_auth/local_auth.dart';
-
+//
 // class SplashUI extends StatefulWidget {
 //   @override
 //   _SplashUIState createState() => _SplashUIState();
 // }
-
+//
 // bool userStatus;
-
+//
 // Future<bool> getUserStatus() async {
 //   //Check is logged in or no
-
+//
 //   return true;
 // }
-
+//
 // class _SplashUIState extends State<SplashUI> {
 //   final LocalAuthentication _localAuthentication = LocalAuthentication();
-
+//
 //   // Biometric Authantication
 //   Future<bool> _isBiometricAvailable() async {
 //     bool isAvailable = false;
@@ -30,16 +30,16 @@
 //     } on PlatformException catch (e) {
 //       print(e);
 //     }
-
+//
 //     if (!mounted) return isAvailable;
-
+//
 //     isAvailable
 //         ? print('Biometric is available!')
 //         : print('Biometric is unavailable.');
-
+//
 //     return isAvailable;
 //   }
-
+//
 //   Future<void> _getListOfBiometricTypes() async {
 //     try {
 //       Globals.listOfBiometrics.value =
@@ -47,11 +47,11 @@
 //     } on PlatformException catch (e) {
 //       print(e);
 //     }
-
+//
 //     if (!mounted) return;
 //     print(Globals.listOfBiometrics.value);
 //   }
-
+//
 //   Future<void> _authenticateUser() async {
 //     var sheetAuth;
 //     bool isAuthenticated = false;
@@ -64,14 +64,14 @@
 //     } on PlatformException catch (e) {
 //       print(e);
 //     }
-
+//
 //     if (!mounted) return;
-
+//
 //     isAuthenticated
 //         ? print('User is authenticated!')
 //         : print('User is not authenticated.');
 //   }
-
+//
 //   Future<bool> getBiometricStatus() async {
 //     await getUserStatus();
 //     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -93,7 +93,7 @@
 //     }
 //     return Globals.biometricSwitchValue.value;
 //   }
-
+//
 //   getAppLanguageState() async {
 //     SharedPreferences prefs = await SharedPreferences.getInstance();
 //     var storedLang = prefs.getString('appLang');
@@ -109,7 +109,7 @@
 //       }
 //     });
 //   }
-
+//
 //   void initState() {
 //     super.initState();
 //     getBiometricStatus();
@@ -128,8 +128,8 @@
 //       ),
 //     );
 //   }
-
-  
+//
+//
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
