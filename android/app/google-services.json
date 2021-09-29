@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "333132594677",
+    "project_id": "grsia-562b9",
+    "storage_bucket": "grsia-562b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333132594677:android:2528f8a10aa4bff219f4bc",
+        "android_client_info": {
+          "package_name": "com.intalio.grsia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333132594677-53eu3ep4tb4t4ma8117n1jjurh1fnhhu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsoR9gqpb42tnqaY5LsIJNrsQPX11JsBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333132594677-53eu3ep4tb4t4ma8117n1jjurh1fnhhu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
