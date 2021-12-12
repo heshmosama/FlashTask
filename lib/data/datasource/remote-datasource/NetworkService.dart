@@ -1,13 +1,11 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:grsia/core/utils/CustomInterceptor.dart';
-import 'package:grsia/core/utils/dio_connectivity_requset_retrier.dart';
 import 'package:grsia/core/utils/Constants.dart';
-import 'package:grsia/data/models/GetPansionSalary/body/get_pansion_salary_body.dart';
-import 'package:grsia/data/models/GetPansionSalary/response/get_pansion_salary_response.dart';
-import 'package:grsia/data/models/login_models/login_body.dart';
-import 'package:grsia/data/models/login_models/login_response_model.dart';
-import 'package:grsia/data/models/post_test.dart';
+import 'package:grsia/core/utils/dio_connectivity_requset_retrier.dart';
+import 'package:grsia/data/models/NextRocketModels/next_rocket_model.dart';
+import 'package:grsia/data/models/UpcomingRocketModels/upcoming_rocket_model.dart';
+
 import 'package:retrofit/retrofit.dart';
 
 part 'NetworkService.g.dart';
@@ -16,14 +14,11 @@ part 'NetworkService.g.dart';
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
-  @GET(Constants.post)
-  Future<PostTest> getTasks();
+  @GET(Constants.GetUpcomingRockte)
+  Future<List<UpcomingRocketModel>> GetUpcomingRocket();
 
-  @GET(Constants.post)
-  Future<LoginResponseModel> Login(@Body() LoginBody loginBody);
-
-  @POST(Constants.GETPANSIONSALARY)
-  Future<GetPansionSalaryResponse> GetPansionSalary(@Body() GetPansionSalaryBody body);
+  @GET(Constants.GetNextRocket)
+  Future<NextRocketModel> GetNextRocket();
 
   static RestClient create() {
     Dio? _dio;
@@ -35,7 +30,7 @@ abstract class RestClient {
       "token": "",
       // "key2":"value2"
     };
-    _dio.options.baseUrl = "https://jsonplaceholder.typicode.com/";
+    _dio.options.baseUrl = "https://api.spacexdata.com";
     _dio.options.connectTimeout = 5000; //5s
     _dio.options.receiveTimeout = 3000;
     _dio.interceptors.add(CustomInterceptors(

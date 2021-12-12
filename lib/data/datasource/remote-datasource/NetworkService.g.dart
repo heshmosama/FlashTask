@@ -14,49 +14,37 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<PostTest> getTasks() async {
+  Future<List<UpcomingRocketModel>> GetUpcomingRocket() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PostTest>(
-            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, 'posts/1',
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<UpcomingRocketModel>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/v4/launches/upcoming',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PostTest.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) =>
+            UpcomingRocketModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 
   @override
-  Future<LoginResponseModel> Login(loginBody) async {
+  Future<NextRocketModel> GetNextRocket() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(loginBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<LoginResponseModel>(
-            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, 'posts/1',
+        _setStreamType<NextRocketModel>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/v4/launches/next',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = LoginResponseModel.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<GetPansionSalaryResponse> GetPansionSalary(body) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(body.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<GetPansionSalaryResponse>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, 'api/Public/GetPansionSalary',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = GetPansionSalaryResponse.fromJson(_result.data!);
+    final value = NextRocketModel.fromJson(_result.data!);
     return value;
   }
 
